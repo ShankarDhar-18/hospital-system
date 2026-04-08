@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<form method="GET" class="mb-4 d-flex">
+    <input type="text" name="search" class="form-control me-2" placeholder="Search doctor or specialization...">
+    <button class="btn btn-primary">Search</button>
+</form>
 <h2 class="mb-4">👨‍⚕️ Available Doctors</h2>
 <style>
 body {

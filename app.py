@@ -146,11 +146,19 @@ def doctors():
     if "user_id" not in session:
         return redirect("/login")
 
+    search = request.args.get("search")
+
     conn = get_db()
-    doctors = conn.execute("SELECT * FROM doctors").fetchall()
+
+    if search:
+        doctors = conn.execute(
+            "SELECT * FROM doctors WHERE name LIKE ? OR specialization LIKE ?",
+            ('%' + search + '%', '%' + search + '%')
+        ).fetchall()
+    else:
+        doctors = conn.execute("SELECT * FROM doctors").fetchall()
 
     return render_template("doctors.html", doctors=doctors)
-
 # ---------------- BOOK APPOINTMENT ----------------
 @app.route("/book/<int:doctor_id>", methods=["GET", "POST"])
 def book(doctor_id):
@@ -188,11 +196,19 @@ def medicines():
     if "user_id" not in session:
         return redirect("/login")
 
+    search = request.args.get("search")
+
     conn = get_db()
-    meds = conn.execute("SELECT * FROM medicines").fetchall()
+
+    if search:
+        meds = conn.execute(
+            "SELECT * FROM medicines WHERE name LIKE ?",
+            ('%' + search + '%',)
+        ).fetchall()
+    else:
+        meds = conn.execute("SELECT * FROM medicines").fetchall()
 
     return render_template("medicines.html", meds=meds)
-
 # ---------------- ORDER MEDICINE ----------------
 @app.route("/order/<int:id>", methods=["GET", "POST"])
 def order(id):
@@ -234,6 +250,7 @@ def my_appointments():
     ''', (session["user_id"],)).fetchall()
 
     return render_template("appointments.html", appointments=appointments)
+
 
 # ---------------- ADMIN DASHBOARD ----------------
 @app.route("/admin_dashboard")
