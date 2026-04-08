@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+.register-box {
+    max-width: 420px;
+    margin: auto;
+    padding: 30px;
+    background: rgb(246, 255, 126);
+    background: linear-gradient(135deg, rgb(246, 255, 126) 0%, rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgb(23, 0, 0);
+}
+</style>
+
+<div class="register-box mt-5">
+
+    <h3 class="text-center mb-4">📝 Register</h3>
+
+    <form method="POST">
+
+        <input type="text" name="name" class="form-control mb-3" placeholder="Full Name" required>
+
+        <input type="email" name="email" class="form-control mb-3" placeholder="Email" required>
+
+        <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+
+        <button class="btn btn-success w-100">Register</button>
+
+    </form>
+
+    <p class="text-center mt-3">
+        Already registered? <a href="/login">Login</a>
+    </p>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Orders</title>
+</head>
+<body>
+
+<h2>All Medicine Orders</h2>
+
+<table border="1" cellpadding="10">
+
+<tr>
+    <th>User</th>
+    <th>Medicine</th>
+    <th>Price</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+{% for o in orders %}
+<tr>
+    <td>{{ o.name }}</td>
+    <td>{{ o.medicine_name }}</td>
+    <td>₹{{ o.total_price }}</td>
+    <td>{{ o.address }}</td>
+    <td>{{ o.phone }}</td>
+    <td>{{ o.status }}</td>
+
+    <td>
+        {% if o.status == "Pending" %}
+            <a href="/confirm_order/{{ o.id }}">Confirm</a>
+        {% else %}
+            ✔ Confirmed
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>

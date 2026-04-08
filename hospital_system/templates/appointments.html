@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">📅 My Appointments</h2>
+<style>
+body {
+
+    background: rgb(253, 255, 147);
+    background: linear-gradient(135deg, rgb(255, 250, 150) 0%, rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(10px);
+}
+</style>
+{% if appointments %}
+
+<div class="table-responsive">
+
+<table class="table table-hover table-bordered shadow-sm">
+
+    <thead class="table-dark">
+        <tr>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Serial</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for a in appointments %}
+
+    <tr>
+        <td>👨‍⚕️ {{ a.doctor_name }}</td>
+        <td>📅 {{ a.date }}</td>
+        <td>⏰ {{ a.time }}</td>
+        <td><span class="badge bg-primary">{{ a.serial_number }}</span></td>
+
+        {% if a.status == "Pending" %}
+            <td><span class="badge bg-warning text-dark">Pending</span></td>
+        {% else %}
+            <td><span class="badge bg-success">Confirmed</span></td>
+        {% endif %}
+
+    </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+</div>
+
+{% else %}
+
+<div class="alert alert-info text-center">
+    😔 No appointments found. Book your first appointment now!
+</div>
+
+<div class="text-center">
+    <a href="/doctors" class="btn btn-primary">Book Doctor</a>
+</div>
+
+{% endif %}
+
+{% endblock %}

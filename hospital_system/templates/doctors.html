@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">👨‍⚕️ Available Doctors</h2>
+<style>
+body {
+
+    background: rgb(255, 179, 179);
+    background: linear-gradient(135deg, rgb(255, 191, 191) 0%, rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(10px);
+}
+</style>
+<div class="row">
+
+{% for d in doctors %}
+
+<div class="col-md-4 mb-3">
+
+    <div class="card shadow-lg border-0 h-100">
+
+        <div class="card-body">
+
+            <h4 class="card-title text-primary">Dr. {{ d.name }}</h4>
+
+            <p class="card-text">
+                <strong>Specialization:</strong> {{ d.specialization }} <br>
+                <strong>Timing:</strong> {{ d.timing }}
+            </p>
+
+            <a href="/book/{{ d.id }}" class="btn btn-success w-100">
+                Book Appointment
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

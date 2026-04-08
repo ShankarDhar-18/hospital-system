@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+.login-box {
+    max-width: 420px;
+    margin: auto;
+    padding: 30px;
+    background: rgb(132, 254, 246);
+    background: linear-gradient(135deg, rgb(141, 255, 247) 0%, rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgb(0, 0, 0);
+}
+</style>
+
+<div class="login-box mt-5">
+
+    <h3 class="text-center mb-4">🏥 Login</h3>
+
+    <form method="POST">
+
+        <input type="text" name="email" class="form-control mb-3" placeholder="Email / Admin" required>
+
+        <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+
+        <button class="btn btn-primary w-100">Login</button>
+
+    </form>
+
+    <p class="text-center mt-3">
+        New user? <a href="/register">Register</a>
+    </p>
+
+    <p class="text-center text-muted">
+        
+    </p>
+
+</div>
+
+{% endblock %}

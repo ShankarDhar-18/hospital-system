@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">📅 Book Appointment</h2>
+<style>
+body {
+    background: rgb(255, 219, 168);
+    background: linear-gradient(135deg, rgb(255, 219, 178) 0%, rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(10px);
+}
+</style>
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+    <div class="card shadow-lg border-0">
+
+        <div class="card-body">
+
+            <h4 class="text-primary mb-3">Enter Appointment Details</h4>
+
+            <form method="POST">
+
+                <div class="mb-3">
+                    <label class="form-label">📅 Date</label>
+                    <input type="date" name="date" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">⏰ Time</label>
+                    <input type="time" name="time" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">📱 Phone Number (WhatsApp)</label>
+                    <input type="text" name="phone" class="form-control" placeholder="Enter WhatsApp number" required>
+                </div>
+
+                <button class="btn btn-success w-100">
+                    Confirm Booking
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+{% endblock %}

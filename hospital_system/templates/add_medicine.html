@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2>Add Medicine 💊</h2>
+<style>
+body {
+    background: rgb(243, 255, 168);
+    background: linear-gradient(135deg, rgb(251, 255, 197) 0%, rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(10px);
+}
+</style>
+<form method="POST">
+
+<input type="text" name="name" class="form-control mb-3" placeholder="Medicine Name" required>
+
+<input type="number" name="price" class="form-control mb-3" placeholder="Price" required>
+
+<button class="btn btn-success">Add Medicine</button>
+
+</form>
+
+</div>
+
+{% endblock %}

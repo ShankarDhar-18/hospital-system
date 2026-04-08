@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2>Add Doctor 👨‍⚕️</h2>
+<style>
+body {
+    background: rgb(206, 255, 185);
+    background: linear-gradient(135deg, rgb(202, 255, 177) 0%, rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(10px);
+}
+</style>
+<form method="POST">
+
+<input type="text" name="name" class="form-control mb-3" placeholder="Doctor Name" required>
+
+<input type="text" name="specialization" class="form-control mb-3" placeholder="Specialization" required>
+
+<input type="text" name="timing" class="form-control mb-3" placeholder="Timing (e.g. 10AM - 2PM)" required>
+
+<button class="btn btn-success">Add Doctor</button>
+
+</form>
+
+</div>
+
+{% endblock %}

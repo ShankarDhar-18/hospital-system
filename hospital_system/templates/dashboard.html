@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">🏥 User Dashboard</h2>
+<style>
+body {
+
+    background: rgb(150, 255, 248);
+    background: linear-gradient(135deg, rgb(141, 255, 247) 0%, rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(10px);
+}
+</style>
+<div class="row">
+
+<div class="col-md-4">
+    <div class="card shadow p-3 text-center bg-primary text-white">
+        <h4>👨‍⚕️ Doctors</h4>
+        <a href="/doctors" class="btn btn-light mt-2">View</a>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card shadow p-3 text-center bg-success text-white">
+        <h4>💊 Medicines</h4>
+        <a href="/medicines" class="btn btn-light mt-2">Order</a>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card shadow p-3 text-center bg-warning text-dark">
+        <h4>📅 Appointments</h4>
+        <a href="/my_appointments" class="btn btn-dark mt-2">Check</a>
+    </div>
+</div>
+
+</div>
+
+<hr>
+
+<div class="alert alert-info mt-4">
+    🙏🙏Welcome to SYDRIX Hospital System Dashboard🙏🙏
+         Powerd by SYDRIX TECHNOLOGIES
+</div>
+
+{% endblock %}

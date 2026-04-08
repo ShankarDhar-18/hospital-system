@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Medicines</h2>
+<style>
+body {
+    background: rgb(242, 255, 190);
+    background: linear-gradient(135deg, rgb(255, 254, 182) 0%, rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(10px);
+}
+</style>
+<div class="row">
+{% for m in meds %}
+
+<div class="col-md-3">
+    <div class="card p-3 shadow mb-3">
+        <h5>{{ m.name }}</h5>
+        <p>₹{{ m.price }}</p>
+        <a href="/order/{{ m.id }}" class="btn btn-success">Order</a>
+    </div>
+</div>
+
+{% endfor %}
+</div>
+
+{% endblock %}

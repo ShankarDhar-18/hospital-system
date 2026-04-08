@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">💊 Order Medicine</h2>
+<style>
+body {
+    background: rgb(255, 231, 165);
+    background: linear-gradient(135deg, rgb(156, 255, 219) 0%, rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(10px);
+}
+
+</style>
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+    <div class="card shadow-lg border-0">
+
+        <div class="card-body">
+
+            <h4 class="text-success mb-3">Medicine Details</h4>
+
+            <div class="alert alert-info">
+                <strong>Medicine:</strong> {{ med.name }} <br>
+                <strong>Price:</strong> ₹{{ med.price }}
+            </div>
+
+            <form method="POST">
+
+                <div class="mb-3">
+                    <label class="form-label">🏠 Delivery Address</label>
+                    <textarea name="address" class="form-control" rows="3" placeholder="Enter full address" required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">📱 Phone Number (WhatsApp)</label>
+                    <input type="text" name="phone" class="form-control" placeholder="Enter WhatsApp number" required>
+                </div>
+
+                <button class="btn btn-success w-100">
+                    Place Order
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+{% endblock %}
